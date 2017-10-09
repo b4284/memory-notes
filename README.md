@@ -35,7 +35,7 @@
 1. [Shichao's Notes](https://notes.shichao.io/tlpi/ch7/)
 2. [libgc](http://www.hboehm.info/gc/)
 3. [利用 libgc 當作 malloc() 的漏偵測器](http://blog.csdn.net/freedom2028/article/details/4383838)
-4. [GC myths](www.hboehm.info/gc/myths.ps)
+4. [GC myths](http://www.hboehm.info/gc/myths.ps)
 5. [Paul Wilson's garbage collection ftp archive](ftp://ftp.cs.utexas.edu/pub/garbage/)
 6. [GC survey](ftp://ftp.cs.utexas.edu/pub/garbage/gcsurvey.ps)
 7. [GC FAQ -- draft](http://www.iecc.com/gclist/GC-faq.html)
