@@ -5,7 +5,23 @@
 1. Object often outlives function.
 2. Two ways to solve this problem in the sence of C programming language:
   - On the stack: Caller has automatic variable and send its storage to the callee. When the caller function exits, the storage is automatically destoryed by the C runtime.
-    - (Add an example.)
+    - Example:
+      ```
+      typedef struct {
+          bool has_result;
+          int result;
+      } result_t;
+      
+      void caller(void) {
+          option_t option; // An automatic variable.
+          callee(&option);
+      } // Variable `option` freed with its scope.
+      
+      void callee(option_t *option) {
+          option->has_result = true;
+          option->result = 0;
+      }
+      ```      
     - Guaranteed memory safety, but difficult to design a beautiful API. More than often I need to escalate a shared object.
   - On the heap: independent from program but requires exclicit `free()`ing unused segments.
     - Unsafe.
