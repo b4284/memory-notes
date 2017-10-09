@@ -23,6 +23,26 @@
       } // Variable `result` freed with its scope.
       ```      
     - Guaranteed memory safety, but difficult to design a beautiful API. More than often I need to escalate a shared object.
+      ```
+      void send_recv(const uint8_t *sbuf, uint8_t slen,
+                     uint8_t *rbuf, uint8_t *rlen)
+      {
+          // ... protocol stuff ...
+      }
+      
+      int main(void) {
+          const char *sbuf = "message";
+      
+          // Receive buffer must exist on caller function in order to save
+          // its contents.
+          uint8_t rbuf[256], rlen; // How big should it be?
+      
+          send_recv((uint8_t*)sbuf, strlen(sbuf), rbuf, &rlen);
+      
+          // ... processing ...
+      }
+      ```
+    - Difficult to deal with large data, eg, when parsing a large JSON file.
   - On the heap: independent from program but requires exclicit `free()`ing unused segments.
     - Unsafe.
     - More fitting to a recursive data structure (such as a linked-list).
