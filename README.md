@@ -9,18 +9,18 @@
       ```
       typedef struct {
           bool has_result;
-          int result;
+          int value;
       } result_t;
       
-      void caller(void) {
-          option_t option; // An automatic variable.
-          callee(&option);
-      } // Variable `option` freed with its scope.
-      
-      void callee(option_t *option) {
-          option->has_result = true;
-          option->result = 0;
+      void callee(result_t *result) {
+          result->has_result = true;
+          result->value = 0;
       }
+      
+      void caller(void) {
+          result_t result; // An automatic variable.
+          callee(&result);
+      } // Variable `result` freed with its scope.
       ```      
     - Guaranteed memory safety, but difficult to design a beautiful API. More than often I need to escalate a shared object.
   - On the heap: independent from program but requires exclicit `free()`ing unused segments.
