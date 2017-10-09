@@ -23,7 +23,7 @@
       } // Variable `result` freed with its scope.
       ```      
     - Guaranteed memory safety, but difficult to design a beautiful API. More than often I need to escalate a shared object.
-      It's a distracting having to manage buffers at a upper-level code. Also not easy to share data unless you do a `memcpy()`.
+      It's distracting having to manage buffers at a upper-level code. Also not easy to share data unless you do a `memcpy()`.
       ```
       void send_recv(const uint8_t *sbuf, uint8_t slen,
                      uint8_t *rbuf, uint8_t *rlen)
@@ -48,13 +48,15 @@
     - Unsafe.
     - More fitting to a recursive data structure (such as a linked-list).
 
-## Unix Ways: `brk()` & `sbrk()`
+## Heap
+### Unix Ways: `brk()` & `sbrk()`
 
 1. The [process layout](https://notes.shichao.io/tlpi/ch7/) shows how `brk()` & `sbrk()` add storage to current program space. `brk()` works on addresss; `sbrk()` works on increment or decrement amounts.
-2. `malloc()` is an libc supplied wrapper for `sbrk()` & `mmap()` depending on the allocation size (usually 128KB).
-3. Checkouting the code of musl-libc, I find that it uses -1 as the "fildes" parameter when used as `malloc()`.
 
-## Standard C: `malloc()` & `free()`
+### Standard C: `malloc()` & `free()`
+
+1. `malloc()` is an libc supplied wrapper for `sbrk()` & `mmap()` depending on the allocation size (usually 128KB).
+2. Checkouting the code of musl-libc, I find that it uses -1 as the "fildes" parameter when used as `malloc()`.
 
 ## Garbage Collection
 
