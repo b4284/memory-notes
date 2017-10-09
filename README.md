@@ -23,6 +23,7 @@
       } // Variable `result` freed with its scope.
       ```      
     - Guaranteed memory safety, but difficult to design a beautiful API. More than often I need to escalate a shared object.
+      It's a distracting having to manage buffers at a upper-level code. Also not easy to share data unless you do a `memcpy()`.
       ```
       void send_recv(const uint8_t *sbuf, uint8_t slen,
                      uint8_t *rbuf, uint8_t *rlen)
