@@ -61,6 +61,9 @@
 ## Garbage Collection
 
 1. Introducted (invent?) by John McCarthy in 1959 to ease memory management for LISP.
+2. 30-40% deduce of development time when using GC. [8]
+  - Developers need to specialize their effort for individual programs.
+3. 
 
 ## libgc
 
@@ -78,3 +81,4 @@
 5. [Paul Wilson's garbage collection ftp archive](ftp://ftp.cs.utexas.edu/pub/garbage/)
 6. [GC survey](ftp://ftp.cs.utexas.edu/pub/garbage/gcsurvey.ps)
 7. [GC FAQ -- draft](http://www.iecc.com/gclist/GC-faq.html)
+8. [Advantages and Disadvantages of Conservative Garbage Collection](http://www.hboehm.info/gc/issues.html)
