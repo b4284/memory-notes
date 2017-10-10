@@ -65,12 +65,25 @@
   - Developers need to specialize their effort for individual programs.
 3. 
 
-## libgc
+## libgc (or BDWGC)
+
+Url:
+  - [Homepage](http://www.hboehm.info/gc/)
+  - [GitHub](https://github.com/ivmai/bdwgc)
 
 1. Said to be conservative but don't know why.
 2. An in-place replacement for `malloc()`.
 3. Uses preemptive scheduling to do Mark-n-Sweep.
 4. Can use another thread for GC.
+
+## TinyGC
+
+[GitHub](https://github.com/ivmai/tinygc)
+
+1. A portable, simple subset of BDWGC.
+2. Use `-DGC_FASTCALL='/**/'` for compiling on Linux.
+3. Some investigations:
+  - Under `GC_alloc_hroots()`: why allocate by the size of log2? Ie, `register GC_word size = (GC_word)sizeof(GC_word) << new_log2_size;`
 
 ## Useful links
 
